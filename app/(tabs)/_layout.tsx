@@ -1,33 +1,60 @@
+import Ionicons from '@expo/vector-icons/Ionicons';
 import { Tabs } from 'expo-router';
 import React from 'react';
 
-import { HapticTab } from '@/components/haptic-tab';
-import { IconSymbol } from '@/components/ui/icon-symbol';
-import { Colors } from '@/constants/theme';
-import { useColorScheme } from '@/hooks/use-color-scheme';
-
 export default function TabLayout() {
-  const colorScheme = useColorScheme();
 
   return (
     <Tabs
-      screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-        headerShown: false,
-        tabBarButton: HapticTab,
-      }}>
+        screenOptions={{
+            tabBarActiveTintColor: "#41cf48ff",
+            headerStyle: {
+                backgroundColor: "#111",
+                
+            },
+            headerTitleStyle: {
+                fontSize: 32,
+                margin: 12,
+                fontFamily: 'Times New Roman'
+            },
+            headerShadowVisible: false,
+            headerTintColor: "#41cf48ff",
+            tabBarStyle: {
+                backgroundColor: "#111",    
+            }
+        }}
+    >
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Home',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
+          headerTitle: 'Trabalho - LP III',
+          headerLeft: () => <></>,
+          tabBarIcon: ({focused, color}) => (
+            <Ionicons
+                name={focused? 'home' : 'home-outline'}
+                color={color}
+                size={28}
+            />
+          ),
+          tabBarLabelStyle: {
+            fontSize: 24,
+          }
         }}
       />
       <Tabs.Screen
-        name="explore"
+        name="profile"
         options={{
-          title: 'Explore',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
+          headerTitle: 'Profile',
+          tabBarIcon: ({focused, color}) => (
+            <Ionicons
+                name={focused? 'book' : 'book-outline'}
+                color={color}
+                size={28}
+            />
+          ),
+          tabBarLabelStyle: {
+            fontSize: 24,
+          }
         }}
       />
     </Tabs>

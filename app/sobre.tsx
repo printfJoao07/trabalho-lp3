@@ -1,12 +1,11 @@
-import Button from '@/components/button-link';
 import { StyleSheet, Text, View } from 'react-native';
 
 
-export default function App () {
+export default function SobreScreen () {
   return (
     <View style={styles.container}>
-      <Text>Acessar a página sobre:</Text>
-      <Button label='Sobre' link={'/sobre'} />
+      <Text>João Gabriel</Text>
+      
     </View>
   );
 }
